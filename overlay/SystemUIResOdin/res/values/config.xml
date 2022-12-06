@@ -36,8 +36,8 @@
         <item>-1</item>
         <item>-1</item>
         <item>1</item>
-        <item>255</item>
-        <item>1</item>
+        <item>18</item>
+        <item>4</item>
     </integer-array>
 
     <!-- Doze: Table that translates sensor values from the doze_brightness_sensor_type sensor
@@ -55,5 +55,8 @@
 
     <!-- The radius of the enrollment progress bar, in dp -->
     <integer name="config_udfpsEnrollProgressBar" translatable="false">100</integer>
+
+    <!-- StatusBar burn-in protection -->
+    <bool name="config_statusBarBurnInProtection">true</bool>
 
 </resources>
