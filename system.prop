@@ -1,6 +1,6 @@
-#
+####################################
 # from device/xiaomi/missi/system.prop
-#
+####################################
 #
 # system.prop for missi
 #
@@ -65,6 +65,10 @@ telephony.lteOnCdmaDevice=1
 #Simulate sdcard on /data/media
 #
 persist.fuse_sdcard=true
+#System props for BT
+#ro.bluetooth.library_name=libbluetooth_qti.so
+persist.vendor.btstack.aac_frm_ctl.enabled=true
+persist.sys.btstack.absvolfeature=true
 #system prop for RmNet Data
 persist.rmnet.data.enable=true
 persist.data.wda.enable=true
@@ -93,6 +97,8 @@ ro.nfc.port=I2C
 sys.qca1530=detect
 #Enable stm events
 persist.debug.coresight.config=stm-events
+# Disable ftrace by default
+persist.debug.ftrace_events_disable=Yes
 #hwui properties
 ro.hwui.texture_cache_size=72
 ro.hwui.layer_cache_size=48
@@ -105,6 +111,7 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.text_small_cache_height=1024
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
+debug.hwui.skia_atrace_enabled=false
 config.disable_rtt=true
 #Bringup properties
 persist.sys.force_sw_gles=1
@@ -113,18 +120,20 @@ ro.kernel.qemu.gles=0
 qemu.hw.mainkeys=0
 #Expose aux camera for all packages
 persist.vendor.camera.expose.aux=1
+#Add snapcam in privapp list
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera
 #enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
 # Property for backup NTP Server
 persist.backup.ntpServer="0.pool.ntp.org"
 #Property to enable Mag filter
 persist.vendor.sensors.enable.mag_filter=true
+#Partition source order for Product/Build properties pickup.
+ro.product.property_source_order=odm,vendor,product,system_ext,system
 #Property to enable Codec2 for audio and OMX for Video
 debug.stagefright.ccodec=1
 #Property to set native recorder's maximum base layer fps
 ro.media.recorder-max-base-layer-fps=60
-#modem dump
-persist.vendor.ssr.enable_ramdumps=1
 #Battery Property
 ro.charger.enable_suspend=1
 #Disable MTE Async for system server
@@ -134,31 +143,17 @@ ro.launcher.blur.appLaunch=0
 #button jack mode & switch
 persist.audio.button_jack.profile=volume
 persist.audio.button_jack.switch=0
-#sysprop for WLAN
-ro.hardware.wlan.vendor=qcom
-ro.hardware.wlan.chip=685x
-ro.hardware.wlan.mimo=1
-# end of device/xiaomi/missi/system.prop
-
-# Blur
+#enable speed install
+#ro.miui.pm.install.speedinstall=/data/apk-tmp
+#enable ramdump
+persist.vendor.ssr.enable_ramdumps=1
+#Performance disable iorapd
+ro.iorapd.enable=false
+#Property for BLUR
 persist.sys.sf.disable_blurs=1
 ro.sf.blurs_are_expensive=1
 ro.surface_flinger.supports_background_blur=1
-
-#iwlan vowifi
-persist.vendor.data.iwlan.enable=true
-
-#set ims related prop
-persist.dbg.ims_volte_enable=1
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
-persist.radio.data_ltd_sys_ind=1
-persist.radio.data_con_rprt=1
-persist.radio.calls.on.ims=1
-persist.radio.volte.dan_support=true
-persist.sys.cust.lte_config=true
-persist.radio.VT_ENABLE=1
-persist.radio.VT_HYBRID_ENABLE=1
-
-#
+# property for fuse passthrough
+persist.sys.fuse.passthrough.enable=true
+# nokia audio room for vts
+#persist.vendor.audio.ozo.codec.enable=true
