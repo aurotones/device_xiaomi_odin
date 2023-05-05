@@ -36,8 +36,8 @@
         <item>-1</item>
         <item>-1</item>
         <item>1</item>
-        <item>18</item>
         <item>4</item>
+        <item>2</item>
     </integer-array>
 
     <!-- Doze: Table that translates sensor values from the doze_brightness_sensor_type sensor
